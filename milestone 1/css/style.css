@@ -124,6 +124,12 @@ aside .background-lightblue.wa-container-user-top h4{
   color: #b1b1b1;
 }
 
+.bottom-icon-style{
+  font-size: 25px;
+  margin: 0 30px;
+  color: #6a7376;
+}
+
 /* Search Bar */
 .wa-serch-bar{
  display: flex;
@@ -136,11 +142,24 @@ aside .background-lightblue.wa-container-user-top h4{
   border: none;
 }
 
+#send-message{
+  flex-grow: 1;
+  height: 45px;
+  border: none;
+  padding: 15px;
+  border-radius: 5px;
+}
+
 /* Contact */
 ul.wa-contact-list li{
   display: flex;
   padding: 20px;
   border-top: 1px solid #eaeaea;
+}
+
+ul.wa-contact-list li:hover{
+  cursor: pointer;
+  background-color: #eaeaea;
 }
 
 ul.wa-contact-list li img{
@@ -167,7 +186,7 @@ ul.wa-contact-list li span{
 /* Message Section */
 .wa-background-container{
   background: url(../img/mine.jpg);
-  height: calc(100% - 80px);
+  height: calc(100% - 160px);
 }
 
 .wa-message-container{
@@ -217,3 +236,7 @@ ul.wa-contact-list li span{
 .background-lightblue{
   background-color: #8edafc;
 }
+.background-sand{
+  background-color: #f3eee9;
+}
+
