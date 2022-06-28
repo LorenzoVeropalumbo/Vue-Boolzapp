@@ -58,7 +58,7 @@
               <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
               <span>{{ contact.name }}
                 <span class="last-access-text">
-                  ultimo accesso oggi alle
+                  
                 </span>
               </span>
             </li>
@@ -82,7 +82,7 @@
         </div>
         <div class="wa-background-container">
           <div class="wa-message-container">
-            <div class="wa-message"  v-for="message in contacts[1].messages" :class="message.status === 'sent' ? 'wa-sent' : 'wa-recived' ">
+            <div class="wa-message"  v-for="message in contacts[2].messages" :class="message.status === 'sent' ? 'wa-sent' : 'wa-recived' ">
               <div>{{message.text}}</div>
               <span>{{message.date}}</span>
             </div>
