@@ -14,6 +14,13 @@ a{
   color: black;
 }
 
+.last-access-text{
+  display: block;
+  color: #949a9c;
+  font-size: 15px;
+  margin-top: 5px;
+}
+
 /* Containers */
 .container{
   background: rgb(0,150,136);
@@ -30,8 +37,6 @@ a{
   width: 75%;
   height: 90vh;
   display: flex;
-  /* Test */
-  background-color: yellow;
 }
 
 .wa-container-user-top{
@@ -40,6 +45,11 @@ a{
   align-items: center;
   justify-content: space-between;
 
+}
+
+.wa-contact-container{
+  overflow-y: auto;
+  height: calc(100% - 242px);
 }
 
 /* Rectangles IMG */
@@ -76,8 +86,6 @@ a{
 /* ASIDE */
 aside{
   width: 40%;
-  overflow: hidden;
-  /* Test */
   background-color: white;
 }
 
@@ -91,6 +99,7 @@ aside .wa-container-user-top .wa-user-align img{
 
 aside .background-lightblue.wa-container-user-top{
   height: 110px;
+  font-size: 18px;
 }
 
 aside .background-lightblue.wa-container-user-top h4{
@@ -127,16 +136,84 @@ aside .background-lightblue.wa-container-user-top h4{
   border: none;
 }
 
+/* Contact */
+ul.wa-contact-list li{
+  display: flex;
+  padding: 20px;
+  border-top: 1px solid #eaeaea;
+}
+
+ul.wa-contact-list li img{
+  width: 70px;
+  display: block;
+  border-radius: 50%; 
+  margin-right: 20px; 
+}
+
+ul.wa-contact-list li span{
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* MAIN SECTION */
 .wa-container .wa-main{
   width: 60%;
 }
 
+.wa-main .wa-container-user-top img{
+  margin: 0 20px;
+}
 
+/* Message Section */
+.wa-background-container{
+  background: url(../img/mine.jpg);
+  height: calc(100% - 80px);
+}
+
+.wa-message-container{
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wa-message{
+  min-width: 200px;
+  max-width: 60%;
+  padding-top: 20px;
+  padding-left: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  
+}
+
+.wa-message > span{
+  display: block;
+  text-align: end;
+  padding-right: 8px;
+  padding-bottom: 8px;
+  padding-top: 5px;
+  font-size: 12px;
+  color: #6e6e6e;
+}
+.wa-message > div{
+  text-align: start;
+  padding-right: 100px;
+}
+
+.wa-recived{
+  background-color: white;
+  align-self: flex-start;
+}
+.wa-sent{
+  background-color: #d5f9ba;
+  align-self: flex-end;
+}
 
 .background-grey{
   background-color: #eaeaea;
 }
-
 .background-lightblue{
   background-color: #8edafc;
 }
