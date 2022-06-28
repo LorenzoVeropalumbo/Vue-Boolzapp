@@ -82,7 +82,7 @@
         </div>
         <div class="wa-background-container">
           <div class="wa-message-container">
-            <div class="wa-message"  v-for="message in contacts[0].messages" :class="message.status === 'sent' ? 'wa-recived' : 'wa-sent' ">
+            <div class="wa-message"  v-for="message in contacts[1].messages" :class="message.status === 'sent' ? 'wa-sent' : 'wa-recived' ">
               <div>{{message.text}}</div>
               <span>{{message.date}}</span>
             </div>

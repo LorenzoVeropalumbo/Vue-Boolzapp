@@ -187,6 +187,7 @@ ul.wa-contact-list li span{
 .wa-background-container{
   background: url(../img/mine.jpg);
   height: calc(100% - 160px);
+  overflow-y: hidden;
 }
 
 .wa-message-container{
@@ -195,11 +196,11 @@ ul.wa-contact-list li span{
   padding-top: 70px;
   display: flex;
   flex-direction: column;
+  
 }
 
 .wa-message{
-  min-width: 200px;
-  max-width: 60%;
+  width: 48%;
   padding-top: 20px;
   padding-left: 20px;
   border-radius: 15px;
@@ -218,7 +219,7 @@ ul.wa-contact-list li span{
 }
 .wa-message > div{
   text-align: start;
-  padding-right: 100px;
+  padding-right: 50px;
 }
 
 .wa-recived{
