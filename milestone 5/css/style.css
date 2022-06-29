@@ -267,6 +267,18 @@ ul.wa-contact-list li span.last-access-text{
   display: block;
 }
 
+.message-text-align i{
+  position: relative;
+}
+
+.d-nonee{
+  display: none;
+}
+
+.chevron-Menu{
+  position: absolute;
+}
+
 .background-grey{
   background-color: #eaeaea;
 }

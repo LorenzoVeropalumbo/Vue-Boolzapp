@@ -86,10 +86,11 @@
         </div>
         <div class="wa-background-container">
           <div class="wa-message-container">
-            <div class="wa-message"  v-for="message in contacts[userActiveChat].messages" :class="message.status === 'sent' ? 'wa-sent' : 'wa-recived' ">
+            <div class="wa-message"  v-for="(message,index)  in contacts[userActiveChat].messages" :class="message.status === 'sent' ? 'wa-sent' : 'wa-recived' ">
               <p class="message-text-align">
                 <span>{{message.text}}</span>
-                <i class="fa-solid fa-chevron-down"></i>
+                <i class="fa-solid fa-chevron-down" @click="chevronMenu(index)" ></i>
+                <div class="d-nonee" :class="{'chevron-Menu' : index === currentSelectElemnt}">fes</div>
               </p>
               <span>{{message.date}}</span>
             </div>

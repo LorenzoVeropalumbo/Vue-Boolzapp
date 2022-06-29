@@ -5,6 +5,7 @@ var app = new Vue(
 				userActiveChat: 2,
 				userText: '',
 				userFilterText: '',
+				currentSelectElemnt: 0,
 				contacts: [
 					{
 						name: 'Michele',
@@ -145,6 +146,9 @@ var app = new Vue(
 					}
 					return newText
 				},
+				chevronMenu(index){
+					this.currentSelectElemnt = index;
+				}
 			}
 	}
 );
