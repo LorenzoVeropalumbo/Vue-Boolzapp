@@ -159,7 +159,6 @@ var app = new Vue(
 				deleteMessage(indexMessage){
 					this.currentSelectElemnt = null;
 					this.contacts[this.userActiveChat].messages.splice(indexMessage, 1);
-					console.log(indexMessage);
 				}
 			}
 	}

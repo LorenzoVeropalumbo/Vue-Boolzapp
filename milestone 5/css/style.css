@@ -196,6 +196,7 @@ ul.wa-contact-list li span.last-access-text{
 
 .grows{
   min-width: 125px;
+  text-align: right;
 }
 
 
