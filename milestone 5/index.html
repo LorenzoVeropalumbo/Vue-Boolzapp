@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-
+  <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -59,7 +59,7 @@
                 <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
                 <span>{{ contact.name }}
                   <span class="last-access-text">
-                    {{contact.messages[contact.messages.length - 1].text}}
+                    {{sliceMessage(contact.messages[contact.messages.length - 1].text)}}
                   </span>
                 </span>
               </div>
@@ -74,7 +74,7 @@
           <div class="wa-user-align">
             <img :src="'img/avatar' + contacts[userActiveChat].avatar + '.jpg'" alt="user-avatar">
             <span class="wa-user-font"> {{contacts[userActiveChat].name}}
-              <span class="last-access-text"> ultimo accesso oggi alle </span>
+              <span class="last-access-text"> ultimo accesso oggi alle {{contacts[userActiveChat].messages[contacts[userActiveChat].messages.length - 1].date}}</span>
             </span>
           </div>
           
@@ -105,7 +105,7 @@
       </div>
     </div>
   </div>
-  <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+  
   <script src="js/script.js"></script>
 </body>
 </html>

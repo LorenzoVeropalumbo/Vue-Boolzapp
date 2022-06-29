@@ -241,6 +241,7 @@ ul.wa-contact-list li span.last-access-text{
   text-align: start;
   padding: 10px;
   overflow-wrap: break-word;
+  word-break: break-all;
 }
 
 .wa-recived{

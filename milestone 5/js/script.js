@@ -104,7 +104,7 @@ var app = new Vue(
 					
 					if(trimmedString.length > 0){
 						this.contacts[this.userActiveChat].messages.push({
-								date: dayjs().format("DD/MM/YYYY") + ' ' + dayjs().format("HH:mm:ss"),
+								date: dayjs().format("DD/MM/YYYY HH:mm:ss" ),
 								text: trimmedString,
 								status: 'sent'
 							}
@@ -136,7 +136,15 @@ var app = new Vue(
 							element.visible = false;
 						}
 					});
-				}
+				},
+				sliceMessage(text){
+					let newText = text;
+					if(text.length > 12){
+						newText = text.slice(0,30);
+						newText += "..."
+					}
+					return newText
+				},
 			}
 	}
 );
