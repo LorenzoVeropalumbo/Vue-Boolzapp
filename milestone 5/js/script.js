@@ -106,7 +106,7 @@ var app = new Vue(
 					
 					if(trimmedString.length > 0){
 						this.contacts[this.userActiveChat].messages.push({
-								date: dayjs().format("DD/MM/YYYY HH:mm:ss" ),
+								date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
 								text: trimmedString,
 								status: 'sent'
 							}
@@ -120,7 +120,7 @@ var app = new Vue(
 				responseMessage(){
 					
 					this.contacts[this.userActiveChat].messages.push({
-						date: dayjs().format("DD/MM/YYYY") + ' ' + dayjs().format("HH:mm:ss"),
+						date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
 						text: "ok",
 						status: 'received'
 					})
