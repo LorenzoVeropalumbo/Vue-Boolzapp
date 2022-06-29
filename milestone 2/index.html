@@ -57,10 +57,11 @@
         <!-- Contacts Printer -->
         <div class="wa-contact-container">
           <ul class="wa-contact-list">
-            <li v-for="(contact, index) in contacts">
+            <li v-for="(contact, index) in contacts" @click="messagges(index)">
               <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
               <span>{{ contact.name }}
-                <span class="last-access-text">                 
+                <span class="last-access-text">
+                  
                 </span>
               </span>
             </li>
@@ -71,8 +72,8 @@
         <div class="wa-container-user-top background-grey">
           <div class="wa-user-align">
             <!-- User to read chat -->
-            <img :src="'img/avatar' + contacts[2].avatar + '.jpg'" alt="user-avatar">
-            <span class="wa-user-font"> {{contacts[2].name}}
+            <img :src="'img/avatar' + contacts[UserActiveChat].avatar + '.jpg'" alt="user-avatar">
+            <span class="wa-user-font"> {{contacts[UserActiveChat].name}}
               <span class="last-access-text"> ultimo accesso oggi alle </span>
             </span>
           </div>
@@ -83,10 +84,10 @@
             <i class="fa-solid fa-ellipsis-vertical"></i>
           </div>
         </div>
-        <!-- User messagges -->
+         <!-- User messagges -->
         <div class="wa-background-container">
           <div class="wa-message-container">
-            <div class="wa-message"  v-for="message in contacts[2].messages" :class="message.status === 'sent' ? 'wa-sent' : 'wa-recived' ">
+            <div class="wa-message"  v-for="message in contacts[UserActiveChat].messages" :class="message.status === 'sent' ? 'wa-sent' : 'wa-recived' ">
               <div>{{message.text}}</div>
               <span>{{message.date}}</span>
             </div>

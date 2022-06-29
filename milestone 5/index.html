@@ -29,7 +29,7 @@
               <img src="img\avatar_io.jpg" alt="user-avatar">
               <span class="wa-user-font"> Nome Utente </span> 
             </div>
-            <!-- A Side menu -->
+            
             <div class="wa-logo">
               <i class="fa-solid fa-circle-notch"></i>
               <i class="fa-solid fa-message"></i>
@@ -40,29 +40,31 @@
         <div class="wa-container-user-top background-lightblue">
           <div class="wa-user-align">
             <i class="fa-solid fa-bell-slash bell-style"></i>
-            <!-- CTA -->
             <div>
               <h4>Ricevi notifiche di nuovi messaggi</h4>
               <a href="#">attiva notifiche desktop</a>
             </div>      
           </div>       
         </div>
-        <!-- Search Bar -->
         <div class="wa-serch-bar background-grey">
           <i class="fa-solid fa-magnifying-glass glass-style"></i>
           <label for="search"></label>
-          <input type="text" id="search" name="search" placeholder="Cerca o inizia una nuova chat">
+          <input type="text" id="search" name="search" placeholder="Cerca o inizia una nuova chat" @keyup="filterElementsByText()" v-model="userFilterText">
         </div>
 
-        <!-- Contacts Printer -->
         <div class="wa-contact-container">
           <ul class="wa-contact-list">
-            <li v-for="(contact, index) in contacts">
-              <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
-              <span>{{ contact.name }}
-                <span class="last-access-text">                 
+            <li v-for="(contact, index) in contacts" @click="chatSwap(index)" v-if="contact.visible">
+              <div>
+                <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+                <span>{{ contact.name }}
+                  <span class="last-access-text">
+                    {{contact.messages[contact.messages.length - 1].text}}
+                  </span>
                 </span>
-              </span>
+              </div>
+              
+              <span class="last-access-text grows">{{contact.messages[contact.messages.length - 1].date}}</span>
             </li>
           </ul>
         </div>
@@ -70,9 +72,8 @@
       <div class="wa-main">
         <div class="wa-container-user-top background-grey">
           <div class="wa-user-align">
-            <!-- User to read chat -->
-            <img :src="'img/avatar' + contacts[2].avatar + '.jpg'" alt="user-avatar">
-            <span class="wa-user-font"> {{contacts[2].name}}
+            <img :src="'img/avatar' + contacts[userActiveChat].avatar + '.jpg'" alt="user-avatar">
+            <span class="wa-user-font"> {{contacts[userActiveChat].name}}
               <span class="last-access-text"> ultimo accesso oggi alle </span>
             </span>
           </div>
@@ -83,27 +84,28 @@
             <i class="fa-solid fa-ellipsis-vertical"></i>
           </div>
         </div>
-        <!-- User messagges -->
         <div class="wa-background-container">
           <div class="wa-message-container">
-            <div class="wa-message"  v-for="message in contacts[2].messages" :class="message.status === 'sent' ? 'wa-sent' : 'wa-recived' ">
-              <div>{{message.text}}</div>
+            <div class="wa-message"  v-for="message in contacts[userActiveChat].messages" :class="message.status === 'sent' ? 'wa-sent' : 'wa-recived' ">
+              <p class="message-text-align">
+                <span>{{message.text}}</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </p>
               <span>{{message.date}}</span>
             </div>
           </div>
         </div>
 
-        <!-- Writing area -->
         <div class="wa-container-user-top background-sand">
           <i class="fa-regular fa-face-smile bottom-icon-style"></i>
           <label for="send-message"></label>
-          <input type="text" id="send-message" name="send-message" placeholder="Scrivi un messaggio">
+          <textarea type="text" id="send-message" name="send-message" placeholder="Scrivi un messaggio" @keyup.enter="sendMessage()" v-model="userText"></textarea>
           <i class="fa-solid fa-microphone bottom-icon-style"></i>
         </div>
       </div>
     </div>
   </div>
-  
+  <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>

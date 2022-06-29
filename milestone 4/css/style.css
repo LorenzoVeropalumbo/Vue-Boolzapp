@@ -1,0 +1,265 @@
+/* RESET */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* GENERAL */
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
+a{
+  color: black;
+}
+
+.last-access-text{
+  display: block;
+  color: #949a9c;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+/* Containers */
+.container{
+  background: rgb(0,150,136);
+  background: linear-gradient(180deg, rgba(0,150,136,1) 0%, rgba(0,150,136,1) 20%, rgba(217,217,217,1) 20%);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wa-container{
+  min-width: 1000px;
+  width: 75%;
+  height: 90vh;
+  display: flex;
+}
+
+.wa-container-user-top{
+  height: 80px;
+  display: flex; 
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.wa-contact-container{
+  overflow-y: auto;
+  height: calc(100% - 242px);
+}
+
+/* Rectangles IMG */
+.wa-container-user-top img{
+  width: 60px;
+  display: block;
+  border-radius: 50%;
+}
+
+/* User Font */
+.wa-user-font{
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.wa-user-align{
+  display: flex;
+  align-items: center;
+}
+
+/* Logo */
+.wa-logo{
+  font-size: 26px;
+  padding-right: 22px;
+}
+
+.wa-logo i{
+  padding: 0 5px;
+  color: #b1b1b1;
+  cursor: pointer;
+}
+/* ------------------------------------------------------ */
+
+/* ASIDE */
+aside{
+  width: 40%;
+  background-color: white;
+}
+
+.wa-container aside .wa-container-user-top{
+  border-right: 1px solid #d6d6d6;
+}
+
+aside .wa-container-user-top .wa-user-align img{
+  margin-left: 10px;
+}
+
+aside .background-lightblue.wa-container-user-top{
+  height: 110px;
+  font-size: 18px;
+}
+
+aside .background-lightblue.wa-container-user-top h4{
+  padding-bottom: 3px;
+}
+
+/* Font Awsome */
+.bell-style{
+  font-size: 30px;
+  margin: 0 15px;
+  padding: 15px 13px;
+  background-color: white;
+  border-radius: 50%;
+  color: #8edafc;
+}
+
+.glass-style{
+  background-color: white;
+  height: 35px;
+  line-height: 15px;
+  padding: 10px 30px;
+  color: #b1b1b1;
+}
+
+.bottom-icon-style{
+  font-size: 25px;
+  margin: 0 30px;
+  color: #6a7376;
+}
+
+/* Search Bar */
+.wa-serch-bar{
+ display: flex;
+ padding: 8px;
+}
+
+#search{
+  width: 100%;
+  height: 35px;
+  border: none;
+}
+
+#send-message{
+  flex-grow: 1;
+  height: 55px;
+  border: none;
+  padding: 15px;
+  resize: none;
+  border-radius: 10px;
+}
+
+#send-message::-webkit-scrollbar {
+  display: none;
+}
+
+/* Contact */
+ul.wa-contact-list li div{
+  display: flex;
+  
+}
+ul.wa-contact-list li{
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #eaeaea;
+  padding: 20px; 
+}
+
+
+ul.wa-contact-list li:hover{
+  cursor: pointer;
+  background-color: #eaeaea;
+}
+
+ul.wa-contact-list li img{
+  width: 70px;
+  display: block;
+  border-radius: 50%; 
+  margin-right: 20px; 
+}
+
+ul.wa-contact-list li span{
+  font-size: 20px;
+  font-weight: 500;
+}
+
+ul.wa-contact-list li span.last-access-text{
+  display: block;
+  color: #949a9c;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.grows{
+  min-width: 125px;
+}
+
+
+/* MAIN SECTION */
+.wa-container .wa-main{
+  width: 60%;
+}
+
+.wa-main .wa-container-user-top img{
+  margin: 0 20px;
+}
+
+/* Message Section */
+.wa-background-container{
+  background: url(../img/mine.jpg);
+  height: calc(100% - 160px);
+  overflow-y: auto;
+}
+
+.wa-message-container{
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wa-message{
+  width: 48%;
+  padding-top: 20px;
+  padding-left: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  
+}
+
+.wa-message > span{
+  display: block;
+  text-align: end;
+  padding-right: 8px;
+  padding-bottom: 8px;
+  padding-top: 5px;
+  font-size: 12px;
+  color: #6e6e6e;
+}
+.wa-message > p{
+  text-align: start;
+  padding-right: 50px;
+  overflow-wrap: break-word;
+}
+
+.wa-recived{
+  background-color: white;
+  align-self: flex-start;
+}
+.wa-sent{
+  background-color: #d5f9ba;
+  align-self: flex-end;
+}
+
+.background-grey{
+  background-color: #eaeaea;
+}
+.background-lightblue{
+  background-color: #8edafc;
+}
+.background-sand{
+  background-color: #f3eee9;
+}
