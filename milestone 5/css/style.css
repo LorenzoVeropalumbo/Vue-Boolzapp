@@ -257,6 +257,7 @@ ul.wa-contact-list li span.last-access-text{
 
 .message-text-align{
   display: flex;
+  padding: 15px;
   justify-content: space-between;
 }
 

@@ -59,7 +59,7 @@ var app = new Vue(
 							{
 								date: '28/03/2020 10:10:40',
 								text: 'La Marianna va in campagna',
-									status: 'received'
+								status: 'received'
 							},
 							{
 								date: '28/03/2020 10:20:10',
@@ -159,6 +159,7 @@ var app = new Vue(
 				deleteMessage(indexMessage){
 					this.currentSelectElemnt = null;
 					this.contacts[this.userActiveChat].messages.splice(indexMessage, 1);
+					console.log(indexMessage);
 				}
 			}
 	}

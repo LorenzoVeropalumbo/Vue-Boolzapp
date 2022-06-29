@@ -86,15 +86,15 @@
         </div>
         <div class="wa-background-container">
           <div class="wa-message-container">
-            <div class="wa-message"  v-for="(message,index)  in contacts[userActiveChat].messages" :class="message.status === 'sent' ? 'wa-sent' : 'wa-recived' ">
-              <p class="message-text-align">
+            <div class="wa-message"  v-for="(message,index)  in contacts[userActiveChat].messages" :class="message.status === 'sent' ? 'wa-sent' : 'wa-recived' " v-if="!doNotShow">
+              <div class="message-text-align">
                 <span>{{message.text}}</span>
                 <i class="fa-solid fa-chevron-down" @click="chevronMenu(index)" ></i>
                 <div class="d-none" :class="{'chevron-Menu' : index === currentSelectElemnt}">
                   <span>info messaggio</span>
                   <span @click="deleteMessage(index)">elimina messaggio</span>
                 </div>
-              </p>
+              </div>
               <span>{{message.date}}</span>
             </div>
           </div>
