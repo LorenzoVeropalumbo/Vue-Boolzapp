@@ -58,13 +58,13 @@
               <div>
                 <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
                 <span>{{ contact.name }}
-                  <span class="last-access-text">
+                  <span class="last-access-text" v-if="contacts[userActiveChat].messages.length > 0">
                     {{sliceMessage(contact.messages[contact.messages.length - 1].text)}}
                   </span>
                 </span>
               </div>
               
-              <span class="last-access-text grows">{{contact.messages[contact.messages.length - 1].date}}</span>
+              <span v-if="contacts[userActiveChat].messages.length > 0" class="last-access-text grows">{{contact.messages[contact.messages.length - 1].date}}</span>
             </li>
           </ul>
         </div>
@@ -74,7 +74,7 @@
           <div class="wa-user-align">
             <img :src="'img/avatar' + contacts[userActiveChat].avatar + '.jpg'" alt="user-avatar">
             <span class="wa-user-font"> {{contacts[userActiveChat].name}}
-              <span class="last-access-text"> ultimo accesso oggi alle {{contacts[userActiveChat].messages[contacts[userActiveChat].messages.length - 1].date}}</span>
+              <span class="last-access-text" v-if="contacts[userActiveChat].messages.length > 0"> ultimo accesso oggi alle {{contacts[userActiveChat].messages[contacts[userActiveChat].messages.length - 1].date}}</span>
             </span>
           </div>
           
@@ -85,7 +85,7 @@
           </div>
         </div>
         <div class="wa-background-container">
-          <div class="wa-message-container">
+          <div class="wa-message-container" v-if=" contacts[userActiveChat].messages.length > 0">
             <div class="wa-message" v-for="(message,index) in contacts[userActiveChat].messages" :class="message.status === 'sent' ? 'wa-sent' : 'wa-recived'" >
               <div class="message-text-align">
                 <span>{{message.text}}</span>
