@@ -149,6 +149,7 @@ aside .background-lightblue.wa-container-user-top h4{
   padding: 15px;
   resize: none;
   border-radius: 10px;
+  font-size: 18px;
 }
 
 #send-message::-webkit-scrollbar {
@@ -175,6 +176,7 @@ ul.wa-contact-list li:hover{
 
 ul.wa-contact-list li img{
   width: 70px;
+  height: 70px;
   display: block;
   border-radius: 50%; 
   margin-right: 20px; 
@@ -225,7 +227,7 @@ ul.wa-contact-list li span.last-access-text{
   width: 48%;
   border-radius: 15px;
   margin-bottom: 20px;
-  
+  position: relative;
 }
 
 .wa-message > span{
@@ -267,16 +269,32 @@ ul.wa-contact-list li span.last-access-text{
   display: block;
 }
 
-.message-text-align i{
-  position: relative;
-}
-
-.d-nonee{
+.d-none{
   display: none;
 }
 
-.chevron-Menu{
+.d-none.chevron-Menu{
   position: absolute;
+  width: 200px;
+  height: 80px;
+  display: block;
+  background-color: white;
+  box-shadow: 1px 0px 10px 0px #aaaa;
+  right: 10px;
+  top: 40px;
+  z-index: 50;
+}
+
+.d-none.chevron-Menu span{  
+  color: black;
+  text-align: center;
+  display: block;
+  padding-top: 15px;
+  cursor: pointer;
+}
+
+.d-none.chevron-Menu span:hover{  
+  color: grey;
 }
 
 .background-grey{

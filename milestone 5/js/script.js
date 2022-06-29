@@ -5,7 +5,7 @@ var app = new Vue(
 				userActiveChat: 2,
 				userText: '',
 				userFilterText: '',
-				currentSelectElemnt: 0,
+				currentSelectElemnt: null,
 				contacts: [
 					{
 						name: 'Michele',
@@ -97,6 +97,7 @@ var app = new Vue(
 				chatSwap(index){
 					
 					this.userActiveChat = index;
+					this.currentSelectElemnt = null;
 				},
 				// Send message
 				sendMessage(){
@@ -147,7 +148,17 @@ var app = new Vue(
 					return newText
 				},
 				chevronMenu(index){
-					this.currentSelectElemnt = index;
+					
+					if(this.currentSelectElemnt !== index){
+						this.currentSelectElemnt = index;
+					} else{
+						this.currentSelectElemnt = null;
+					}
+					
+				},
+				deleteMessage(indexMessage){
+					this.currentSelectElemnt = null;
+					this.contacts[this.userActiveChat].messages.splice(indexMessage, 1);
 				}
 			}
 	}

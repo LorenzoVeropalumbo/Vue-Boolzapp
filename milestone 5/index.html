@@ -90,7 +90,10 @@
               <p class="message-text-align">
                 <span>{{message.text}}</span>
                 <i class="fa-solid fa-chevron-down" @click="chevronMenu(index)" ></i>
-                <div class="d-nonee" :class="{'chevron-Menu' : index === currentSelectElemnt}">fes</div>
+                <div class="d-none" :class="{'chevron-Menu' : index === currentSelectElemnt}">
+                  <span>info messaggio</span>
+                  <span @click="deleteMessage(index)">elimina messaggio</span>
+                </div>
               </p>
               <span>{{message.date}}</span>
             </div>
