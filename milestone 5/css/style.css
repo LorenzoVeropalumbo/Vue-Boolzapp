@@ -141,6 +141,7 @@ aside .background-lightblue.wa-container-user-top h4{
   width: 100%;
   height: 35px;
   border: none;
+  padding-left: 20px;
 }
 
 #send-message{
@@ -272,6 +273,7 @@ ul.wa-contact-list li span.last-access-text{
   display: block;
 }
 
+/* Chevron menù */
 .d-none{
   display: none;
 }
@@ -300,6 +302,7 @@ ul.wa-contact-list li span.last-access-text{
   color: grey;
 }
 
+/* COLORS */
 .background-grey{
   background-color: #eaeaea;
 }

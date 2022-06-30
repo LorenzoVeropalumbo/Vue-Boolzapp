@@ -29,7 +29,7 @@
               <img src="img\avatar_io.jpg" alt="user-avatar">
               <span class="wa-user-font"> Nome Utente </span> 
             </div>
-            
+            <!-- What's app A Side icons -->
             <div class="wa-logo">
               <i class="fa-solid fa-circle-notch"></i>
               <i class="fa-solid fa-message"></i>
@@ -37,6 +37,7 @@
             </div>
           </div>
         </div>
+        <!-- CTA -->
         <div class="wa-container-user-top background-lightblue">
           <div class="wa-user-align">
             <i class="fa-solid fa-bell-slash bell-style"></i>
@@ -46,14 +47,17 @@
             </div>      
           </div>       
         </div>
+        <!-- Contact Search bar -->
         <div class="wa-serch-bar background-grey">
           <i class="fa-solid fa-magnifying-glass glass-style"></i>
           <label for="search"></label>
           <input type="text" id="search" name="search" placeholder="Cerca o inizia una nuova chat" @keyup="filterElementsByText()" v-model="userFilterText">
         </div>
 
+        <!-- Contacts -->
         <div class="wa-contact-container">
           <ul class="wa-contact-list">
+            <!-- Print all messagges -->
             <li v-for="(contact, index) in contacts" @click="chatSwap(index)" v-if="contact.visible">
               <div>
                 <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
@@ -74,6 +78,7 @@
           </ul>
         </div>
       </aside>
+      <!-- contact info -->
       <div class="wa-main">
         <div class="wa-container-user-top background-grey">
           <div class="wa-user-align">
@@ -82,18 +87,20 @@
               <span v-if="contacts[userActiveChat].messages.length > 0" class="last-access-text"> ultimo accesso oggi alle {{contacts[userActiveChat].messages[contacts[userActiveChat].messages.length - 1].date}}</span>
             </span>
           </div>
-          
+          <!-- contact icons -->
           <div class="wa-logo">
             <i class="fa-solid fa-magnifying-glass"></i>
             <i class="fa-solid fa-paperclip"></i>
             <i class="fa-solid fa-ellipsis-vertical"></i>
           </div>
         </div>
+        <!-- chat and messages area -->
         <div class="wa-background-container">
           <div class="wa-message-container" v-show=" contacts[userActiveChat].messages.length > 0">
             <div class="wa-message" v-for="(message,index) in contacts[userActiveChat].messages" :class="message.status === 'sent' ? 'wa-sent' : 'wa-recived'" >
               <div class="message-text-align">
                 <span>{{message.text}}</span>
+                <!-- chevron down menù -->
                 <i class="fa-solid fa-chevron-down" @click="chevronMenu(index)" ></i>
                 <div class="d-none" :class="{'chevron-Menu' : index === currentSelectElemnt}">
                   <span>info messaggio</span>
@@ -104,7 +111,7 @@
             </div>
           </div>
         </div>
-
+        <!-- writing chat input -->
         <div class="wa-container-user-top background-sand">
           <i class="fa-regular fa-face-smile bottom-icon-style"></i>
           <label for="send-message"></label>
