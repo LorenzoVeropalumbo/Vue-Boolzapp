@@ -139,14 +139,16 @@ var app = new Vue(
 						}
 					});
 				},
+				// slice big text
 				sliceMessage(text){
 					let newText = text;
-					if(text.length > 12){
+					if(text.length > 29){
 						newText = text.slice(0,30);
 						newText += "..."
 					}
 					return newText
 				},
+				// chevron menu
 				chevronMenu(index){
 					
 					if(this.currentSelectElemnt !== index){
@@ -156,6 +158,7 @@ var app = new Vue(
 					}
 					
 				},
+				// delete messages
 				deleteMessage(indexMessage){
 					this.currentSelectElemnt = null;
 					this.contacts[this.userActiveChat].messages.splice(indexMessage, 1);
