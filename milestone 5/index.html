@@ -58,7 +58,7 @@
         <div class="wa-contact-container">
           <ul class="wa-contact-list">
             <!-- Print all messagges -->
-            <li v-for="(contact, index) in contacts" @click="chatSwap(index)" v-if="contact.visible">
+            <li v-for="(contact, index) in contacts" @click="chatSwap(index)" v-if="contact.visible" :class="{'background-grey': index === userActiveChat}">
               <div>
                 <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
                 <span>{{ contact.name }}
@@ -84,7 +84,9 @@
           <div class="wa-user-align">
             <img :src="'img/avatar' + contacts[userActiveChat].avatar + '.jpg'" alt="user-avatar">
             <span class="wa-user-font"> {{contacts[userActiveChat].name}}
-              <span v-if="contacts[userActiveChat].messages.length > 0" class="last-access-text"> ultimo accesso oggi alle {{contacts[userActiveChat].messages[contacts[userActiveChat].messages.length - 1].date}}</span>
+              <span v-if="contacts[userActiveChat].messages.length > 0" class="last-access-text"> 
+                ultimo accesso oggi alle {{contacts[userActiveChat].messages[contacts[userActiveChat].messages.length - 1].date}}
+              </span>
             </span>
           </div>
           <!-- contact icons -->
