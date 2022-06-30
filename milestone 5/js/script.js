@@ -224,6 +224,9 @@ var app = new Vue(
 							],
 						}
 					)
+
+					this.contactName= "",
+					this.contactImage= "",
 					this.PopUpActive = false;
 				}
 
