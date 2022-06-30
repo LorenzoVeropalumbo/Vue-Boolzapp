@@ -6,6 +6,7 @@ var app = new Vue(
 				userText: '',
 				userFilterText: '',
 				currentSelectElemnt: null,
+				showMenu: false,
 				contacts: [
 					{
 						name: 'Michele',
@@ -90,12 +91,21 @@ var app = new Vue(
 							}
 						],
 					},
-				]				
+				],
+				quotes: [
+					'no, i\'m your father ',
+					'come to the darkside we have cookies',
+					'may the force be with you',
+					'hello there',
+					'Boring conversation anyway…',
+					'I find your lack of faith disturbing.'
+				],				
 			},
 			methods: {
 				// Active clicked chat
 				chatSwap(index){
 					
+					this.showMenu = false;
 					this.userActiveChat = index;
 					this.currentSelectElemnt = null;
 				},
@@ -119,9 +129,11 @@ var app = new Vue(
 				// User response
 				responseMessage(){
 					
+					const response = Math.floor(Math.random() * 6);
+
 					this.contacts[this.userActiveChat].messages.push({
 						date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
-						text: "ok",
+						text: this.quotes[response],
 						status: 'received'
 					})
 				},
@@ -150,7 +162,8 @@ var app = new Vue(
 				},
 				// chevron menu
 				chevronMenu(index){
-					
+
+					this.showMenu = false;
 					if(this.currentSelectElemnt !== index){
 						this.currentSelectElemnt = index;
 					} else{
@@ -162,6 +175,23 @@ var app = new Vue(
 				deleteMessage(indexMessage){
 					this.currentSelectElemnt = null;
 					this.contacts[this.userActiveChat].messages.splice(indexMessage, 1);
+				},
+				resetClick(){
+					this.currentSelectElemnt = null;
+					this.showMenu = false;
+				},
+				closeshowMenu(){
+					this.showMenu =	!this.showMenu;
+					this.currentSelectElemnt = null;
+				},
+				deleteAllChat(){										
+					this.contacts[this.userActiveChat].messages.splice(0,this.contacts[this.userActiveChat].messages.length);
+					this.showMenu = false;
+				},
+				deleteContact(){										
+					this.contacts.splice(this.userActiveChat,1);
+					this.userActiveChat = 0;
+					this.showMenu = false;
 				}
 			}
 	}

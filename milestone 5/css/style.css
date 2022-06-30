@@ -273,7 +273,7 @@ ul.wa-contact-list li span.last-access-text{
   display: block;
 }
 
-/* Chevron menù */
+/* drop down menù */
 .d-none{
   display: none;
 }
@@ -281,24 +281,55 @@ ul.wa-contact-list li span.last-access-text{
 .d-none.chevron-Menu{
   position: absolute;
   width: 200px;
-  height: 80px;
+  height: 100px;
   display: block;
   background-color: white;
-  box-shadow: 1px 0px 10px 0px #aaaa;
+  box-shadow: 1px 4px 10px 0px #aaaa;
   right: 10px;
+  top: 40px;
+  z-index: 50;
+}
+
+.fa-solid.fa-ellipsis-vertical{
+  position: relative;
+}
+
+.d-none.vertical-menu{
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  display: block;
+  background-color: white;
+  box-shadow: 1px 4px 10px 0px #aaaa;
+  right: -50%;
   top: 40px;
   z-index: 50;
 }
 
 .d-none.chevron-Menu span{  
   color: black;
-  text-align: center;
   display: block;
-  padding-top: 15px;
+  padding-top: 20px;
+  padding-left: 10px;
+  font-size: 18px;
   cursor: pointer;
 }
 
 .d-none.chevron-Menu span:hover{  
+  color: grey;
+}
+.d-none.vertical-menu span{  
+  color: black;
+  display: block;
+  padding-top: 20px;
+  padding-left: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 100;
+  font-family: 'Roboto', sans-serif;
+}
+
+.d-none.vertical-menu span:hover{  
   color: grey;
 }
 

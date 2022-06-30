@@ -19,7 +19,7 @@
   <!-- General Container -->
   <div class="container" id="root">
     <!-- What's app Container -->
-    <div class="wa-container">
+    <div class="wa-container" @click.stop="resetClick()">
       
       <!-- What's app A Side -->
       <aside>
@@ -43,7 +43,7 @@
             <i class="fa-solid fa-bell-slash bell-style"></i>
             <div>
               <h4>Ricevi notifiche di nuovi messaggi</h4>
-              <a href="#">attiva notifiche desktop</a>
+              <a href="https://www.whatsapp.com/?lang=it">attiva notifiche desktop</a>
             </div>      
           </div>       
         </div>
@@ -56,7 +56,7 @@
 
         <!-- Contacts -->
         <div class="wa-contact-container">
-          <ul class="wa-contact-list">
+          <ul class="wa-contact-list" v-if="contacts.length > 0">
             <!-- Print all messagges -->
             <li v-for="(contact, index) in contacts" @click="chatSwap(index)" v-if="contact.visible" :class="{'background-grey': index === userActiveChat}">
               <div>
@@ -81,32 +81,39 @@
       <!-- contact info -->
       <div class="wa-main">
         <div class="wa-container-user-top background-grey">
-          <div class="wa-user-align">
-            <img :src="'img/avatar' + contacts[userActiveChat].avatar + '.jpg'" alt="user-avatar">
-            <span class="wa-user-font"> {{contacts[userActiveChat].name}}
-              <span v-if="contacts[userActiveChat].messages.length > 0" class="last-access-text"> 
-                ultimo accesso oggi alle {{contacts[userActiveChat].messages[contacts[userActiveChat].messages.length - 1].date}}
+          <div style="display:contents;" v-if="contacts.length > 0">
+            <div  class="wa-user-align">
+              <img :src="'img/avatar' + contacts[userActiveChat].avatar + '.jpg'" alt="user-avatar">
+              <span class="wa-user-font"> {{contacts[userActiveChat].name}}
+                <span v-if="contacts[userActiveChat].messages.length > 0" class="last-access-text"> 
+                  ultimo accesso oggi alle {{contacts[userActiveChat].messages[contacts[userActiveChat].messages.length - 1].date}}
+                </span>
               </span>
-            </span>
-          </div>
-          <!-- contact icons -->
-          <div class="wa-logo">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <i class="fa-solid fa-paperclip"></i>
-            <i class="fa-solid fa-ellipsis-vertical"></i>
+            </div>
+            <!-- contact icons -->
+            <div class="wa-logo">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <i class="fa-solid fa-paperclip"></i>
+              <i class="fa-solid fa-ellipsis-vertical" @click.stop="closeshowMenu()">
+                <div class="d-none" :class="{'vertical-menu' : showMenu}">
+                  <span @click.stop="deleteAllChat()">Elimina chat</span>
+                  <span @click.stop="deleteContact(userActiveChat)">Elimina contatto</span>
+                </div>
+              </i>           
+            </div>
           </div>
         </div>
         <!-- chat and messages area -->
         <div class="wa-background-container">
-          <div class="wa-message-container" v-show=" contacts[userActiveChat].messages.length > 0">
+          <div class="wa-message-container" v-if="contacts.length > 0" v-if=" contacts[userActiveChat].messages.length > 0">
             <div class="wa-message" v-for="(message,index) in contacts[userActiveChat].messages" :class="message.status === 'sent' ? 'wa-sent' : 'wa-recived'" >
               <div class="message-text-align">
                 <span>{{message.text}}</span>
                 <!-- chevron down menù -->
-                <i class="fa-solid fa-chevron-down" @click="chevronMenu(index)" ></i>
+                <i class="fa-solid fa-chevron-down" @click.stop="chevronMenu(index)" ></i>
                 <div class="d-none" :class="{'chevron-Menu' : index === currentSelectElemnt}">
-                  <span>info messaggio</span>
-                  <span @click="deleteMessage(index)">elimina messaggio</span>
+                  <span>Info messaggio</span>
+                  <span @click="deleteMessage(index)">Elimina messaggio</span>
                 </div>
               </div>
               <span>{{message.date}}</span>
