@@ -7,6 +7,9 @@ var app = new Vue(
 				userFilterText: '',
 				currentSelectElemnt: null,
 				showMenu: false,
+				PopUpActive: false,
+				contactName: "",
+				contactImage: "",
 				contacts: [
 					{
 						name: 'Michele',
@@ -99,12 +102,17 @@ var app = new Vue(
 					'hello there',
 					'Boring conversation anyway…',
 					'I find your lack of faith disturbing.'
-				],				
+				],
+				newContact: {
+					name: 'Aggiungi nuovo contatto',
+					avatar: '_4',
+					visible: true,
+				},				
 			},
 			methods: {
 				// Active clicked chat
 				chatSwap(index){
-					
+					this.PopUpActive = false;
 					this.showMenu = false;
 					this.userActiveChat = index;
 					this.currentSelectElemnt = null;
@@ -162,7 +170,7 @@ var app = new Vue(
 				},
 				// chevron menu
 				chevronMenu(index){
-
+					this.PopUpActive = false;
 					this.showMenu = false;
 					if(this.currentSelectElemnt !== index){
 						this.currentSelectElemnt = index;
@@ -179,10 +187,12 @@ var app = new Vue(
 				resetClick(){
 					this.currentSelectElemnt = null;
 					this.showMenu = false;
+					this.PopUpActive = false;
 				},
 				closeshowMenu(){
 					this.showMenu =	!this.showMenu;
 					this.currentSelectElemnt = null;
+					this.PopUpActive = false;
 				},
 				deleteAllChat(){										
 					this.contacts[this.userActiveChat].messages.splice(0,this.contacts[this.userActiveChat].messages.length);
@@ -192,7 +202,31 @@ var app = new Vue(
 					this.contacts.splice(this.userActiveChat,1);
 					this.userActiveChat = 0;
 					this.showMenu = false;
+					this.PopUpActive = false;
+				},
+				addNewContact(){
+					this.currentSelectElemnt = null;
+					this.showMenu = false;
+					this.PopUpActive = true;
+				},
+				closePopUp(){
+					this.PopUpActive = false;
+				},
+				saveNewContact(){
+					
+					this.contacts.push(
+						{
+							name: this.contactName,
+							avatar: this.contactImage,
+							visible: true,
+							messages: [
+							
+							],
+						}
+					)
+					this.PopUpActive = false;
 				}
+
 			}
 	}
 );

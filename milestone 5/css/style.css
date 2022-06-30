@@ -154,10 +154,40 @@ aside .background-lightblue.wa-container-user-top h4{
   font-size: 18px;
 }
 
+#addNewContactInput{
+  width: 90%;
+  height: 35px;
+  border: none;
+  padding-left: 20px;
+  margin: 10px 30px;
+}
+
 #send-message::-webkit-scrollbar {
   display: none;
 }
 
+.addNewContactText{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  color: black;
+  font-size: 20px;
+  padding: 18px 50px 10px;
+}
+
+.addNewContactBtn{
+  text-align: center;
+}
+.addNewContactBtn button{
+  padding: 8px 15px;
+  margin: 0 10px;
+  border-radius: 20px;
+  border: 2px solid black;
+  font-size: 16px;
+}
+.addNewContactBtn button:hover{
+  border: 2px solid lightseagreen;
+  color: lightseagreen;
+}
 /* Contact */
 ul.wa-contact-list li div{
   display: flex;
@@ -331,6 +361,19 @@ ul.wa-contact-list li span.last-access-text{
 
 .d-none.vertical-menu span:hover{  
   color: grey;
+}
+
+.d-none.addNewContactPopUp{
+  width: 564px;
+  height: 256px;
+  background-color: whitesmoke;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  position: absolute;
+  z-index: 60;
+  border: 1px solid black;
 }
 
 /* COLORS */

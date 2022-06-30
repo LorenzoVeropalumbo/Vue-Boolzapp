@@ -32,7 +32,20 @@
             <!-- What's app A Side icons -->
             <div class="wa-logo">
               <i class="fa-solid fa-circle-notch"></i>
-              <i class="fa-solid fa-message"></i>
+              <i class="fa-solid fa-message" @click.stop="addNewContact()">
+                <div class="d-none" :class="{'addNewContactPopUp' : PopUpActive }">
+                  <div class="addNewContactText">Aggiungi nuovo contatto</div>
+                  <input type="text" placeholder="Nome contatto" id="addNewContactInput"
+                  v-model="contactName">
+                  <div class="addNewContactText">Aggiungi immagine profilo</div>
+                  <input type="text" placeholder="Immagine profilo" id="addNewContactInput" v-model="contactImage">
+                  <div class="addNewContactBtn">
+                    <button @click.stop="saveNewContact()">Salva</button>
+                    <button @click.stop="closePopUp()">Annulla</button>
+                  </div>
+                  
+                </div>
+              </i>
               <i class="fa-solid fa-ellipsis-vertical"></i>
             </div>
           </div>
